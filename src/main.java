@@ -4,9 +4,14 @@ public class main {
 
         int fuelType = 95;
         int amount = 50;
+        boolean hasDiscount = amount > 10;
 
         double fuel92Price = 60.2;
         double fuel95Price = 67.33;
+
+        double discount = 0.1;
+
+        String wrongFuelTypeMessage = "Указан неверный тип топлива";
 
         double fuelPrice = 0;
 
@@ -16,7 +21,11 @@ public class main {
         else if (fuelType == 95) {
             fuelPrice = fuel95Price;
         } else {
-            System.out.println("Указан неверный тип топлива");
+            System.out.println(wrongFuelTypeMessage);
+        }
+
+        if (hasDiscount) {
+            fuelPrice = fuelPrice - discount * fuelPrice;
         }
 
         if (amount < 1) {
@@ -24,7 +33,9 @@ public class main {
             amount = 0;
         }
 
-        System.out.println("Цена выбранного топлива: " + fuelPrice + " руб.");
+        String fuelPriceMessage = "Цена выбранного топлива: " + fuelPrice + " руб.";
+
+        System.out.println(fuelPriceMessage);
 
         double totalPrice = fuelPrice * amount;
 
